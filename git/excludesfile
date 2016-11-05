@@ -1,0 +1,7 @@
+cscope*
+tags
+*~
+*.o
+*.retry
+*.pyc
+.ropeproject/

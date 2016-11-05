@@ -1,0 +1,98 @@
+[color]
+    ui = auto
+    diff = true
+    interactive = true
+[core]
+    excludesfile = /Users/lishulong/Documents/Backups/git/excludesfile
+    quotepath = false
+    editor = vim
+[user]
+    name = Li Shulong
+    email = shulong.li@baishancloud.com
+[push]
+    default = current
+[merge]
+    defaultToUpstream = true
+[alias]
+    log-full = log --color --graph --decorate -M
+    lg = log --color --graph --decorate -M
+    log-summary = log --color --graph --decorate --abbrev-commit --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim yellow)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+    log-short = log --color --graph --decorate -M --pretty=oneline --abbrev-commit -M
+    l = log --color --graph --decorate -M --pretty=oneline --abbrev-commit -M
+    bb = !git   log --color --graph --decorate -M --pretty=oneline --abbrev-commit -M --simplify-by-decoration --no-pager
+    bmv = branch -m
+    d = diff --color
+    ds = diff --color --stat
+    dc = diff --color --cached
+    d0 = diff --color --unified=0
+    cc = "!git commit --verbose -m \"squash! $(msg=$(git log -n1 --pretty=format:%s);echo ${msg#squash! })\""
+    ci = commit --verbose
+    cit = commit --verbose -s recursive -X theirs
+    cia = commit --verbose --amend
+    fixup = "!git commit --verbose -m \"fixup! $(msg=$(git log -n1 --pretty=format:%s);echo ${msg#fixup! })\""
+    p = cherry-pick
+    pe = cherry-pick --edit
+    co = checkout
+    tr = checkout --track
+    pu = push --set-upstream
+    pullall = pull --recurse-submodules=on-demand
+    s = status --short --ignore-submodules
+    si = status --ignore-submodules
+    st = status
+    r = rebase
+    ri = rebase --interactive
+    ris = rebase --interactive --autosquash
+    rp = rebase --preserve-merges
+    ss = stash save
+    ssk = stash save --keep-index
+    sl = stash list
+    sp = stash pop
+    sa = stash apply
+    m = merge
+    mf = merge --no-edit --commit --ff-only
+    mc = merge --no-edit --commit --no-ff
+    mt = mergetool -y -t vimdiff
+    mtg = mergetool -y -t gvimdiff
+    ls = ls-files
+    lsd = ls-files --deleted
+    lsm = ls-files --modified
+    lso = ls-files --others
+    lsi = ls-files --ignored
+    lss = ls-files --stage
+    lsk = ls-files --killed
+    lsu = ls-files --unmerged
+    sub = submodule
+    subadd = submodule add --branch master
+    subeach = submodule foreach
+    cnf = "config --get-regexp "
+    please = push --force-with-lease
+    root = commit -m root --allow-empty
+[i18n]
+    commitencoding = utf-8
+    logoutputencoding = utf-8
+[diff]
+    algorithm = histogram
+    compactionHeuristic = true
+    noprefix = true
+    context = 10
+[color "diff-highlight"]
+    oldhighlight = bold red cyan
+    newhighlight = bold green cyan
+    oldreset = nobold red black
+    newreset = nobold green black
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+[color "diff"]
+    meta = bold white
+    context = white
+    frag = blue
+    func = bold blue
+    commit = yellow
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+[commit]
+    template = /Users/lishulong/Documents/Backups/git/commit_template
